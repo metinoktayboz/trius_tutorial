@@ -12,11 +12,10 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/home").permitAll()
+                .antMatchers("/", "/home","/sign").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                //.loginPage("/sign")
                 .loginPage("/login")
                 .successForwardUrl("/product/list")
                 .defaultSuccessUrl("/product/list")

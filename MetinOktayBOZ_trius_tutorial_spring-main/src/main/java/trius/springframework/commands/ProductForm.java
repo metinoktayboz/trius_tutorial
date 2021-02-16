@@ -7,11 +7,18 @@ import java.math.BigDecimal;
 
 public class ProductForm {
 
+
     private String id;
+    @NotNull
     private String description;
+    @NotNull
     private BigDecimal price;
+    @NotNull
     private BigDecimal stock;
-    private int orderNumber=0;
+
+    private int orderNumber;
+
+    private String orderDate;
 
     public String getId() {
         return id;
@@ -52,4 +59,8 @@ public class ProductForm {
     public void setOrderNumber(int orderNumber) {
         this.orderNumber = orderNumber;
     }
+
+    public String getOrderDate() { return orderDate; }
+
+    public void setOrderDate(String orderDate) { this.orderDate = orderDate; }
 }

@@ -13,12 +13,22 @@
 
     <link href="../../static/css/spring-core.css"
           th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
 </head>
+<style> form { display: inline; }</style>
 <body>
 <div class="container">
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Sign Out"/>
     </form>
+
+    <form th:action="@{/product/orderList}" method="post">
+        <input type="submit" value="Order List"/>
+    </form>
+
     <div th:if="${not #lists.isEmpty(products)}">
         <h2>Product List</h2>
         <table class="table table-striped">
@@ -40,10 +50,51 @@
                 <td><a th:href="${'/product/show/' + product.id.toHexString()}">View</a> </td>
                 <td><a th:href="${'/product/edit/' + product.id.toHexString()}">Edit</a> </td>
                 <td><a th:href="${'/product/delete/' + product.id.toHexString()}">Delete</a> </td>
-                <td><a th:href="${'/product/order/' + product.id.toHexString()}">Order</a> </td>
+                <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" th:attrappend="data-target=${product.id.toHexString()}">Order</button></td>
+
+                <div class="container">
+                    <!-- Trigger the modal with a button -->
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog" th:attrappend="id=${product.id.toHexString()}">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content" th:if="${product.stock!=0}">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                    <h4 class="modal-title">Order Page</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Click "Yes" to give an order.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a th:href="${'/product/order/' + product.id.toHexString()}">Yes</a>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                </div>
+                            </div>
+                            <div class="modal-content" th:if="${product.stock==0}">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                    <h4 class="modal-title">Order Page</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>There is no stock. You can not give an order.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </tr>
         </table>
     </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
     <div class="row">
         <div class="col-sm-3">
             <a href="/product/new">New Product</a>

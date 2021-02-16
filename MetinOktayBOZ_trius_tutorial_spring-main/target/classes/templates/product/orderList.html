@@ -13,6 +13,8 @@
 
     <link href="../../static/css/spring-core.css"
           th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
 </head>
 <body>
 <div class="container">
@@ -26,23 +28,22 @@
                 <th>Id</th>
                 <th>Description</th>
                 <th>Price</th>
-                <th>Stock</th>
-                <th>List</th>
-                <th>Order</th>
+                <th>Order Number</th>
+                <th>Last Order Date</th>
+
             </tr>
-            <tr th:each="product : ${products}">
+            <tr th:each="product : ${products}" th:if="${product.orderNumber!=0}">
                 <td th:text="${product.id.toHexString()}"></td>
                 <td th:text="${product.description}"></td>
                 <td th:text="${product.price}"></td>
-                <td th:text="${product.stock}"></td>
-                <td><a th:href="${'/product/show/' + product.id.toHexString()}">View</a> </td>
-                <td><a th:href="${'/product/orderList/' + product.id.toHexString()}">Order</a> </td>
+                <td th:text="${product.orderNumber}"></td>
+                <td th:text="${product.orderDate}"></td>
             </tr>
         </table>
     </div>
     <div class="row">
         <div class="col-sm-3">
-            <a href="/product/new">New Product</a>
+            <a href="/product/list">Return to list</a>
         </div>
     </div>
 </div>

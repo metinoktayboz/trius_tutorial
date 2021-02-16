@@ -20,5 +20,5 @@ public interface ProductService {
 
     Product saveOrUpdateProductForm(ProductForm productForm);
 
-    void order(String id);
+    void order(ProductForm productForm);
 }

@@ -50,17 +50,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.SpringBootMongodbApplication (1)">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SpringBootMongodbApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="spring-boot-mongodb" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="trius.springframework.SpringBootMongodbApplication" />
@@ -97,6 +86,17 @@
       <workItem from="1612084808689" duration="3036000" />
       <workItem from="1612348131565" duration="13755000" />
       <workItem from="1612437549502" duration="9179000" />
+      <workItem from="1612448494375" duration="715000" />
+      <workItem from="1612465186717" duration="647000" />
+      <workItem from="1612529251784" duration="10699000" />
+      <workItem from="1612618992371" duration="12304000" />
+      <workItem from="1612788766575" duration="4805000" />
+      <workItem from="1612795735843" duration="1521000" />
+      <workItem from="1613063730851" duration="915000" />
+      <workItem from="1613475202832" duration="6048000" />
+      <workItem from="1613485428625" duration="5881000" />
+      <workItem from="1613494930370" duration="991000" />
+      <workItem from="1613495960745" duration="1117000" />
     </task>
     <servers />
   </component>
@@ -114,5 +114,26 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/trius/springframework/controllers/ProductController.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/trius/springframework/controllers/ProductController.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/trius/springframework/controllers/ProductController.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -13,6 +13,8 @@
 
     <link href="../../static/css/spring-core.css"
           th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
@@ -53,10 +55,14 @@
                         <p class="form-control-static" th:text="${product.stock}"></p>
                     </div>
                 </div>
+                <div><span>Return to <a href="/" th:href="@{/product/list}">list</a></span>
+                </div>
             </form>
         </div>
     </div>
+
 </div>
+
 
 </body>
 </html>

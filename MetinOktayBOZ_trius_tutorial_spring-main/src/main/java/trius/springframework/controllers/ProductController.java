@@ -79,16 +79,18 @@ public class ProductController {
     @RequestMapping("product/order/{id}")
     public String order(@PathVariable String id, Model model){
         Product product = productService.getById(id);
-        productService.order(id);
         ProductForm productForm = productToProductForm.convert(product);
-
-        model.addAttribute("productForm", productForm);
-        return "product/list";
+        productService.order(productForm);
+        model.addAttribute("order", productForm);
+        return "redirect:/product/list";
     }
+
+
 
     @RequestMapping("/product/orderList")
     public String orderList(Model model){
         model.addAttribute("products", productService.listAll());
         return "product/orderList";
     }
+
 }

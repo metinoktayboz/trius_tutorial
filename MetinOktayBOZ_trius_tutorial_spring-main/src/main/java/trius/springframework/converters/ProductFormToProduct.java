@@ -12,6 +12,7 @@ public class ProductFormToProduct implements Converter<ProductForm, Product> {
 
     @Override
     public Product convert(ProductForm productForm) {
+
         Product product = new Product();
         if (productForm.getId() != null  && !StringUtils.isEmpty(productForm.getId())) {
             product.setId(new ObjectId(productForm.getId()));
@@ -19,6 +20,10 @@ public class ProductFormToProduct implements Converter<ProductForm, Product> {
         product.setDescription(productForm.getDescription());
         product.setPrice(productForm.getPrice());
         product.setStock(productForm.getStock());
+        product.setOrderNumber(productForm.getOrderNumber());
+        product.setOrderDate(productForm.getOrderDate());
+
+
         return product;
     }
 }

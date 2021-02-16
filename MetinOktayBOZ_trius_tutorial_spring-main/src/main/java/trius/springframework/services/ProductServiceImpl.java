@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
     private ProductFormToProduct productFormToProduct;
     private Product product;
+
 
     @Autowired
     public ProductServiceImpl(ProductRepository productRepository, ProductFormToProduct productFormToProduct) {
@@ -60,21 +63,19 @@ public class ProductServiceImpl implements ProductService {
     }
     //yeni eklendi
     @Override
-    public void order(String id) {
-        product = getById(id);
-        BigDecimal stock = product.getStock();
-        BigDecimal empty = new BigDecimal("0");
-        int control = stock.compareTo(empty);
-        if(control==0){
-            System.out.println("Stok bitti");
-        }else{
-            BigDecimal order = new BigDecimal("1");
-            stock = order.subtract(stock);
-            product.setStock(stock);
-            product.setOrderNumber(product.getOrderNumber()+1);
+    public void order(ProductForm productForm) {
 
-        }
+        BigDecimal one = new BigDecimal("1");
+        BigDecimal stock = productForm.getStock();
+        BigDecimal newStock = stock.subtract(one);
+        int orderNumber = productForm.getOrderNumber();
+        orderNumber++;
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-
+        productForm.setOrderDate(date.format(formatter));
+        productForm.setOrderNumber(orderNumber);
+        productForm.setStock(newStock);
+        Product product = saveOrUpdateProductForm(productForm);
     }
 }

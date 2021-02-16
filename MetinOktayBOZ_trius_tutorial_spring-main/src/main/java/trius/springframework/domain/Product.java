@@ -13,7 +13,8 @@ public class Product {
     private String description;
     private BigDecimal price;
     private BigDecimal stock;
-    private int orderNumber=0;
+    private int orderNumber;
+    private String orderDate;
 
     public ObjectId getId() {
         return _id;
@@ -54,4 +55,8 @@ public class Product {
     public void setOrderNumber(int orderNumber) {
         this.orderNumber = orderNumber;
     }
+
+    public String getOrderDate() { return orderDate; }
+
+    public void setOrderDate(String orderDate) { this.orderDate = orderDate; }
 }
