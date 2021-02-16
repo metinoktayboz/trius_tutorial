@@ -13,7 +13,7 @@ public class Product {
     private String description;
     private BigDecimal price;
     private BigDecimal stock;
-    private int orderNumber;
+    private int orderNumber=0;
     private String orderDate;
 
     public ObjectId getId() {
