@@ -16,7 +16,7 @@ public class ProductForm {
     @NotNull
     private BigDecimal stock;
 
-    private int orderNumber;
+    private int orderNumber=0;
 
     private String orderDate;
 
